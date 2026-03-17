@@ -5,9 +5,9 @@ metadata:
   namespace: chandana-ns
 type: Opaque
 stringData:
-  MONGODB_AUTH_URI=mongo-service://localhost:27017/artgallery
-  MONGODB_FEEDBACK_URI=mongo-service://localhost:27017/artgallery
-  MONGODB_URI=mongo-service://localhost:27017
+  MONGODB_AUTH_URI: mongo-service://localhost:27017/artgallery
+  MONGODB_FEEDBACK_URI: mongo-service://localhost:27017/artgallery
+  MONGODB_URI: mongo-service://localhost:27017
 
 ---
 apiVersion: apps/v1
