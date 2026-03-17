@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: photo-deployment
+  namespace: chandana-ns
+spec: 
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: rec
+  template:
+    metadata:
+      labels: 
+        app: rec
+    spec: 
+      containers:
+      - name: photo-container
+        image: nimeshsv814/photostudio-app:v1.1.0
+        ports: 
+        - containerPort: 3000
+        env:
+          - name: MONGODB_AUTH_URI
+            valueFrom:
+              secretKeyRef:
+              name: photo-secr
+              key: MONGODB_AUTH_URI
+          - name: MONGODB_FEEDBACK_URI
+            valueFrom:
+              secretKeyRef:
+              name: photo-secr
+              key: MONGODB_FEEDBACK_URI
+          - name: MONGODB_URI
+            valueFrom:
+              secretKeyRef:
+              name: photo-secr
+              key: MONGODB_URI
+
+            
+ 
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: photo-service
+  namespace: chandana-ns
+spec:
+  selector:
+    app: rec
+  ports:
+  - port: 3000
+    targetPort: 3000
+  type: NodePort
+
+
+
+
+
