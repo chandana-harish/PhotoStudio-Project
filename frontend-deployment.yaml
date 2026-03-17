@@ -21,23 +21,19 @@ spec:
         env:
           - name: MONGODB_AUTH_URI
             valueFrom:
-            secretKeyRef:
-              name: photo-secr
-              key: MONGODB_AUTH_URI
+              secretKeyRef:
+                name: photo-secr
+                key: MONGODB_AUTH_URI
           - name: MONGODB_FEEDBACK_URI
             valueFrom:
-            secretKeyRef:
-              name: photo-secr
-              key: MONGODB_FEEDBACK_URI
+              secretKeyRef:
+                name: photo-secr
+                key: MONGODB_FEEDBACK_URI
           - name: MONGODB_URI
             valueFrom:
-            secretKeyRef:
-              name: photo-secr
-              key: MONGODB_URI
-
-            
- 
-
+              secretKeyRef:
+                name: photo-secr
+                key: MONGODB_URI
 ---
 apiVersion: v1
 kind: Service
