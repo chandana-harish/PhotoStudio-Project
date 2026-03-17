@@ -19,18 +19,18 @@ spec:
           ports: 
             - containerPort: 3000
           env:
-          - name: MONGODB_AUTH_URI
-            valueFrom:
+            - name: MONGODB_AUTH_URI
+              valueFrom:
               secretKeyRef:
               name: photo-secr
               key: MONGODB_AUTH_URI
-          - name: MONGODB_FEEDBACK_URI
-            valueFrom:
+            - name: MONGODB_FEEDBACK_URI
+              valueFrom:
               secretKeyRef:
               name: photo-secr
               key: MONGODB_FEEDBACK_URI
-          - name: MONGODB_URI
-            valueFrom:
+            - name: MONGODB_URI
+              valueFrom:
               secretKeyRef:
               name: photo-secr
               key: MONGODB_URI
