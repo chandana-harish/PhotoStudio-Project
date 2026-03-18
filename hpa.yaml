@@ -1,0 +1,23 @@
+#scale up 
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: photo-deployment-hpa
+  namespace: chandana-ns
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: photo-deployment
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+    - type: Resource 
+      resource: 
+        name: cpu
+        target: 
+          type: Utilization
+          averageUtilization: 5 #5% of cpu utilisation
+
+
+  
