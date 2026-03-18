@@ -18,6 +18,13 @@ spec:
         image: nimeshsv814/photostudio-app:v1.1.0
         ports: 
         - containerPort: 3000
+        resources:
+          requests: 
+            memory: "128Mi"
+            cpu: "50m"
+          limits: 
+            memory: "256Mi"
+            cpu: "100m"
         env:
           - name: MONGODB_AUTH_URI
             valueFrom:
